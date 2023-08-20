@@ -11,6 +11,7 @@ greet("david");
 
 global.setTimeout(() => {
     console.log("Time out")
+    clearInterval(int) // after 3 seconds clear the interval
 }, 3000);
 
 const int = setInterval(()=>{
