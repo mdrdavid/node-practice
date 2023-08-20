@@ -4,3 +4,7 @@ const {persons, ages} =require('./persons') // destructure properties from modul
 
 console.log(my_persons.persons, my_persons.ages)
 console.log(persons, ages)
+
+// built in module to get information about the operating system
+const os = require('os')
+console.log(os.platform(), os.homedir())
