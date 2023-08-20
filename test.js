@@ -17,3 +17,7 @@ global.setTimeout(() => {
 const int = setInterval(()=>{
 console.log("My name")
 }, 1000)
+
+// file name and directory name
+console.log(__dirname) // gets the absolute pass of the current folder file is in
+console.log(__filename)// gets the absolute pass of the current folder with the file name
