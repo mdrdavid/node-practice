@@ -42,3 +42,5 @@ if (fs.existsSync("./docs/deleteme.txt")) {
     console.log("file deleted");
   });
 }
+
+// streams and buffers
