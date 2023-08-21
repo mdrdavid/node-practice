@@ -8,8 +8,15 @@ const port = 3000;
 const server = http.createServer((req, res) => {
   console.log("Request has been made");
   res.statusCode = 200;
-  res.setHeader("Content-Type", "text/plain");
-  res.end("Hello World");
+  //set header content type
+//   res.setHeader("Content-Type", "text/plain");
+  res.setHeader("Content-Type", "text/html");
+  // write to the response
+  res.write('<p>Hello My People</p>')
+  res.write('<p>Hello My People Again</p>')
+  // end the response 
+  res.end();
+
 });
 
 server.listen(port,hostname, () => {
