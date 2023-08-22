@@ -16,12 +16,33 @@ const server = http.createServer((req, res) => {
   // res.write('<p>Hello My People</p>')
   // res.write('<p>Hello My People Again</p>')
 
+  //basic routing
+  let path = "./views/";
+
+  switch (req.url) {
+    case "/":
+      path += "index.html";
+      break;
+
+    case "/about":
+      path += "about.html";
+      break;
+    case "/services":
+      path += "services.html";
+      break;
+    case "/contactus":
+      path += "contactus.html";
+      break;
+    default:
+      path += "404.html";
+      break;
+  }
+
   // send an html file to the browser
-  fs.readFile("./views/index.html", (err, data) => {
+  fs.readFile(path, (err, data) => {
     if (err) {
       console.log(err);
       res.end();
-
     } else {
       // write to the response
       res.write(data);
