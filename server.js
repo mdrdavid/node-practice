@@ -1,5 +1,6 @@
 const http = require("http");
 const fs = require("fs");
+const _ = require('lodash');
 
 const hostname = "localhost"; // points at '127.0.0.1' which points directly to the computer
 const port = 3000;
