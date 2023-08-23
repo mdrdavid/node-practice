@@ -26,6 +26,12 @@ app.get("/contactus", (req, res) => {
 app.get("/contact", (req, res) => {
   res.redirect("./contactus");
 });
+
+//404 page
+app.use((req, res) => {
+  res.status(404).sendFile("./views/404.html", { root: __dirname });
+});
+
 // listen to http requests
 app.listen(port, () => {
   console.log(`Server listening to ${port}`);
