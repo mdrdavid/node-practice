@@ -21,6 +21,11 @@ app.get("/contactus", (req, res) => {
   console.log("request made");
   res.sendFile("./views/contactus.html", { root: __dirname });
 });
+
+// redirects
+app.get("/contact", (req, res) => {
+  res.redirect("./contactus");
+});
 // listen to http requests
 app.listen(port, () => {
   console.log(`Server listening to ${port}`);
