@@ -13,13 +13,13 @@ const port = 3000;
 app.get("/", (req, res) => {
   //   res.send("Hello World");
   // res.sendFile("./views/index.html", { root: __dirname });
-  res.render('index')
+  res.render('index', {title: 'Home'})
 });
 
 app.get("/about", (req, res) => {
   console.log("request made");
   // res.sendFile("./views/about.html", { root: __dirname });
-  res.render('about')
+  res.render('about', {title: 'About'})
 
 });
 app.get("/services", (req, res) => {
