@@ -18,15 +18,21 @@ app.get("/", (req, res) => {
 
 app.get("/about", (req, res) => {
   console.log("request made");
-  res.sendFile("./views/about.html", { root: __dirname });
+  // res.sendFile("./views/about.html", { root: __dirname });
+  res.render('about')
+
 });
 app.get("/services", (req, res) => {
   console.log("request made");
-  res.sendFile("./views/services.html", { root: __dirname });
+  // res.sendFile("./views/services.html", { root: __dirname });
+  res.render('services')
+
+
 });
-app.get("/contactus", (req, res) => {
+app.get("/contact", (req, res) => {
   console.log("request made");
-  res.sendFile("./views/contactus.html", { root: __dirname });
+  // res.sendFile("./views/contactus.html", { root: __dirname });
+  res.render('contact')
 });
 
 // redirects
@@ -36,7 +42,7 @@ app.get("/contact", (req, res) => {
 
 //404 page
 app.use((req, res) => {
-  res.status(404).sendFile("./views/404.html", { root: __dirname });
+  res.status(404).render('404');
 });
 
 // listen to http requests

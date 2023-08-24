@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Welcome to My Website</title>
+    <title>About Us</title>
+    <link rel="stylesheet" href="/styles.css">
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -14,12 +15,13 @@
             background-color: #333;
             color: #fff;
             text-align: center;
-            padding: 1rem;
+            padding: 1rem 0;
         }
         nav {
-            background-color: #555;
-            text-align: center;
-            padding: 0.5rem;
+            background-color: #444;
+            display: flex;
+            justify-content: center;
+            padding: 0.5rem 0;
         }
         nav a {
             color: #fff;
@@ -27,33 +29,37 @@
             margin: 0 1rem;
         }
         main {
-            padding: 2rem;
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+        h2 {
+            margin-top: 2rem;
         }
         footer {
             background-color: #333;
             color: #fff;
             text-align: center;
-            padding: 1rem;
+            padding: 1rem 0;
         }
     </style>
 </head>
 <body>
     <header>
-        <h1>Welcome to My Website</h1>
+        <h1>About Us</h1>
     </header>
     <nav>
-        <a href="/about">About Us</a>
+        <a href="/">Home</a>
         <a href="/contact">Contact Us</a>
     </nav>
     <main>
-        <section id="about">
-            <h2>About Us</h2>
-            <p>This is a sample website to demonstrate the HTML structure.</p>
+        <section>
+            <h2>Our Story</h2>
+            <p>We are a team of passionate individuals...</p>
         </section>
-        <section id="contact">
-            <h2>Contact Information</h2>
-            <p>Email: info@example.com</p>
-            <p>Phone: (123) 456-7890</p>
+        <section>
+            <h2>Our Mission</h2>
+            <p>Our mission is to provide...</p>
         </section>
     </main>
     <footer>
