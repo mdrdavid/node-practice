@@ -4,35 +4,61 @@ const express = require("express");
 const app = express();
 
 // register view engine
-app.set('view engine', 'ejs') // used to create templates
+app.set("view engine", "ejs"); // used to create templates
 
-app.set('views', 'my-views') // find all views in this location
+app.set("views", "my-views"); // find all views in this location
 
 const hostname = "localhost"; // points at '127.0.0.1' which points directly to the computer
 const port = 3000;
 app.get("/", (req, res) => {
   //   res.send("Hello World");
   // res.sendFile("./views/index.html", { root: __dirname });
-  res.render('index', {title: 'Home'})
+  const blogs = [
+    {
+      title: "Introduction to JavaScript",
+      snippet: "JavaScript is a versatile programming language...",
+    },
+    {
+      title: "Getting Started with React",
+      snippet:
+        "React is a popular JavaScript library for building user interfaces...",
+    },
+    {
+      title: "CSS Flexbox Layout",
+      snippet: "Flexbox is a powerful layout system that simplifies...",
+    },
+    {
+      title: "Node.js Basics",
+      snippet: "Node.js is a runtime environment for executing JavaScript...",
+    },
+    {
+      title: "Responsive Web Design",
+      snippet: "Responsive web design ensures that your website looks good...",
+    },
+  ];
+
+  // Access individual blogs
+  console.log(blogs[0]); // The first blog object
+  console.log(blogs[1]); // The second blog object
+  // ... and so on
+
+  res.render("index", { title: "Home", blogs:blogs});
 });
 
 app.get("/about", (req, res) => {
   console.log("request made");
   // res.sendFile("./views/about.html", { root: __dirname });
-  res.render('about', {title: 'About'})
-
+  res.render("about", { title: "About" });
 });
 app.get("/services", (req, res) => {
   console.log("request made");
   // res.sendFile("./views/services.html", { root: __dirname });
-  res.render('services')
-
-
+  res.render("services");
 });
 app.get("/contact", (req, res) => {
   console.log("request made");
   // res.sendFile("./views/contactus.html", { root: __dirname });
-  res.render('contact')
+  res.render("contact");
 });
 
 // redirects
@@ -42,7 +68,7 @@ app.get("/contact", (req, res) => {
 
 //404 page
 app.use((req, res) => {
-  res.status(404).render('404');
+  res.status(404).render("404");
 });
 
 // listen to http requests
