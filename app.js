@@ -1,9 +1,8 @@
 const express = require("express");
-const morgan = require('morgan')
+const morgan = require("morgan");
 
 // create express app
 const app = express();
-
 
 // register view engine
 app.set("view engine", "ejs"); // used to create templates
@@ -15,16 +14,19 @@ const hostname = "localhost"; // points at '127.0.0.1' which points directly to 
 const port = 3000;
 
 // middleware to log details to the console for every request
-app.use((req, res, next)=>{
-  console.log('New request made')
-  console.log('host', req.hostname)
-  console.log('path', req.path)
-  console.log('method', req.method)
-  next()// move to next function after this middleware
-}) 
+app.use((req, res, next) => {
+  console.log("New request made");
+  console.log("host", req.hostname);
+  console.log("path", req.path);
+  console.log("method", req.method);
+  next(); // move to next function after this middleware
+});
 
 // use morgan logger
-app.use(morgan('dev'))
+app.use(morgan("dev"));
+
+// middleware and static files
+app.use(express.static("public")); // send all files in the public folder as static files to frontend
 
 app.get("/", (req, res) => {
   //   res.send("Hello World");
@@ -58,7 +60,7 @@ app.get("/", (req, res) => {
   console.log(blogs[1]); // The second blog object
   // ... and so on
 
-  res.render("index", { title: "Home", blogs:blogs});
+  res.render("index", { title: "Home", blogs: blogs });
 });
 
 app.get("/about", (req, res) => {
