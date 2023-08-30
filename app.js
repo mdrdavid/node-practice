@@ -3,13 +3,24 @@ const express = require("express");
 // create express app
 const app = express();
 
+
 // register view engine
 app.set("view engine", "ejs"); // used to create templates
 
 app.set("views", "my-views"); // find all views in this location
 
 const hostname = "localhost"; // points at '127.0.0.1' which points directly to the computer
+
 const port = 3000;
+
+// middleware to log details to the console for every request
+app.use((req, res)=>{
+  console.log('New request made')
+  console.log('host', req.hostname)
+  console.log('path', req.path)
+  console.log('method', req.method)
+}) 
+
 app.get("/", (req, res) => {
   //   res.send("Hello World");
   // res.sendFile("./views/index.html", { root: __dirname });
