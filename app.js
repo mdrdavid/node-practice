@@ -14,11 +14,12 @@ const hostname = "localhost"; // points at '127.0.0.1' which points directly to 
 const port = 3000;
 
 // middleware to log details to the console for every request
-app.use((req, res)=>{
+app.use((req, res, next)=>{
   console.log('New request made')
   console.log('host', req.hostname)
   console.log('path', req.path)
   console.log('method', req.method)
+  next()// move to next function after this middleware
 }) 
 
 app.get("/", (req, res) => {
