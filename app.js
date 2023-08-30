@@ -1,4 +1,5 @@
 const express = require("express");
+const morgan = require('morgan')
 
 // create express app
 const app = express();
@@ -21,6 +22,9 @@ app.use((req, res, next)=>{
   console.log('method', req.method)
   next()// move to next function after this middleware
 }) 
+
+// use morgan logger
+app.use(morgan('dev'))
 
 app.get("/", (req, res) => {
   //   res.send("Hello World");
