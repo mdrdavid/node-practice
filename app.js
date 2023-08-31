@@ -1,6 +1,7 @@
 const express = require("express");
 const morgan = require("morgan");
 const mongoose = require("mongoose");
+const User = require("./models/user");
 
 // create express app
 const app = express();
@@ -92,6 +93,32 @@ app.get("/contact", (req, res) => {
   res.redirect("./contactus");
 });
 
+// mongoose and mongo sandbox routes
+app.get("/add-user", (req, res) => {
+  const user = new User({
+    username: "david",
+    email: "david@gmail.com",
+    password: "12345",
+  });
+  user
+    .save()
+    .then((result) => {
+      res.send(result);
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+});
+// get all users
+app.get("/all-users", (req, res) => {
+  User.find()
+    .then((result) => {
+      res.send(result);
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+});
 //404 page
 app.use((req, res) => {
   res.status(404).render("404");
@@ -104,10 +131,8 @@ mongoose
     // listen to http requests after a connection is established
     app.listen(port, () => {
       console.log(`Server listening to ${port}`);
-    console.log("Database connected");
-
+      console.log("Database connected");
     });
-    
   })
   .catch(() => {
     console.log("Database connection failed");
