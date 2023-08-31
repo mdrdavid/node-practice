@@ -1,8 +1,12 @@
 const express = require("express");
 const morgan = require("morgan");
+const mongoose = require("mongoose");
 
 // create express app
 const app = express();
+
+MONGOOSE_URL =
+  "mongodb+srv://david:david@cluster0.bkgfjsx.mongodb.net/captive-portal-db";
 
 // register view engine
 app.set("view engine", "ejs"); // used to create templates
@@ -89,6 +93,15 @@ app.use((req, res) => {
   res.status(404).render("404");
 });
 
+// connect to mongo database
+mongoose
+  .connect(MONGOOSE_URL)
+  .then(() => {
+    console.log("Database connected");
+  })
+  .catch(() => {
+    console.log("Database connection failed");
+  });
 // listen to http requests
 app.listen(port, () => {
   console.log(`Server listening to ${port}`);
