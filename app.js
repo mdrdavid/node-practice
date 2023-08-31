@@ -119,6 +119,17 @@ app.get("/all-users", (req, res) => {
       console.log(err);
     });
 });
+
+// get single user
+app.get("/single-user", (req, res) => {
+  User.findById('64f04d961d681e0acfe08997')
+    .then((result) => {
+      res.send(result);
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+});
 //404 page
 app.use((req, res) => {
   res.status(404).render("404");
