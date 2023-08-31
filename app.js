@@ -82,7 +82,11 @@ app.get("/contact", (req, res) => {
   // res.sendFile("./views/contactus.html", { root: __dirname });
   res.render("contact");
 });
-
+app.get("/create-user", (req, res) => {
+  console.log("request made");
+  // res.sendFile("./views/contactus.html", { root: __dirname });
+  res.render("create-user");
+});
 // redirects
 app.get("/contact", (req, res) => {
   res.redirect("./contactus");
