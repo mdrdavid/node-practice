@@ -101,12 +101,18 @@ app.use((req, res) => {
 mongoose
   .connect(MONGOOSE_URL)
   .then(() => {
+    // listen to http requests after a connection is established
+    app.listen(port, () => {
+      console.log(`Server listening to ${port}`);
     console.log("Database connected");
+
+    });
+    
   })
   .catch(() => {
     console.log("Database connection failed");
   });
 // listen to http requests
-app.listen(port, () => {
-  console.log(`Server listening to ${port}`);
-});
+// app.listen(port, () => {
+//   console.log(`Server listening to ${port}`);
+// });
