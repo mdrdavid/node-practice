@@ -6,6 +6,7 @@ const User = require("./models/user");
 // create express app
 const app = express();
 
+// mongo url
 MONGOOSE_URL =
   "mongodb+srv://david:david@cluster0.bkgfjsx.mongodb.net/captive-portal-db";
 
@@ -63,7 +64,7 @@ app.get("/", (req, res) => {
   // Access individual blogs
   console.log(blogs[0]); // The first blog object
   console.log(blogs[1]); // The second blog object
-  // ... and so on
+
 
   res.render("index", { title: "Home", blogs: blogs });
 });
@@ -148,6 +149,7 @@ mongoose
   .catch(() => {
     console.log("Database connection failed");
   });
+  
 // listen to http requests
 // app.listen(port, () => {
 //   console.log(`Server listening to ${port}`);
